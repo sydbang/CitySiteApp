@@ -45,6 +45,8 @@
 		6FAF94662BE4235C0082FDBA /* CitySiteAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CitySiteAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FAF946A2BE4235C0082FDBA /* CitySiteAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySiteAppUITests.swift; sourceTree = "<group>"; };
 		6FAF946C2BE4235C0082FDBA /* CitySiteAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySiteAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6FAF947B2BE42CC70082FDBA /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		6FAF947C2BE42D030082FDBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +97,13 @@
 		6FAF944D2BE4235A0082FDBA /* CitySiteApp */ = {
 			isa = PBXGroup;
 			children = (
+				6FAF947C2BE42D030082FDBA /* Info.plist */,
 				6FAF944E2BE4235A0082FDBA /* CitySiteAppApp.swift */,
 				6FAF94502BE4235A0082FDBA /* ContentView.swift */,
 				6FAF94522BE4235C0082FDBA /* Assets.xcassets */,
 				6FAF94542BE4235C0082FDBA /* CitySiteApp.entitlements */,
 				6FAF94552BE4235C0082FDBA /* Preview Content */,
+				6FAF947B2BE42CC70082FDBA /* Config.xcconfig */,
 			);
 			path = CitySiteApp;
 			sourceTree = "<group>";
@@ -299,6 +303,7 @@
 /* Begin XCBuildConfiguration section */
 		6FAF946E2BE4235C0082FDBA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FAF947B2BE42CC70082FDBA /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -360,6 +365,7 @@
 		};
 		6FAF946F2BE4235C0082FDBA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FAF947B2BE42CC70082FDBA /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -424,6 +430,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CitySiteApp/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -462,6 +469,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CitySiteApp/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
