@@ -13,9 +13,27 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            List(businesses) { b in
-                Text(b.name ?? "name not found")
+            List {
+            ForEach(businesses) { b in
+                    VStack {
+                        HStack{
+                            Image(systemName: "heart.fill")
+                            VStack (alignment: .leading) {
+                                Text(b.name ?? "Restaurant")
+                                    .font(Font.system(size: 15))
+                                    .bold()
+                                Text(TextHelper.distanceAwayText(meter: b.distance ?? 0))
+                                    .font(Font.system(size: 16))
+                            }
+                            Spacer()
+                            Image(systemName: "heart.fill")
+                        }
+                        Divider()
+                    }
+                }
+            .listRowSeparator(.hidden)
             }
+            .listStyle(.plain)
         }
         .padding()
         .task {

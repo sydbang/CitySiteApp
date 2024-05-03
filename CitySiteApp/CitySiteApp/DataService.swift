@@ -17,7 +17,7 @@ struct DataService {
             return []
         }
         // 1. Create URL
-        if let url = URL(string: "https://api.yelp.com/v3/businesses/search?latitude=37.785834&longitude=-122.406417&categories=restaurants&limit=5") {
+        if let url = URL(string: "https://api.yelp.com/v3/businesses/search?latitude=37.785834&longitude=-122.406417&categories=restaurants") {
 //            if URLComponents(url: url, resolvingAgainstBaseURL: true) != nil {
 //                var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
 //                let queryItems: [URLQueryItem] = [
