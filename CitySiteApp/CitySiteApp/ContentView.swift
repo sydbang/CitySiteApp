@@ -9,17 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var service = DataService()
+    @State var businesses = [Business]()
     
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            List(businesses) { b in
+                Text(b.name ?? "name not found")
+            }
         }
         .padding()
         .task {
-            await service.businessSearch()
+            businesses = await service.businessSearch()
         }
     }
 }
