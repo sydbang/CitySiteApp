@@ -10,10 +10,10 @@ import Foundation
 struct Business: Decodable, Identifiable {
     var id: String?
     var name: String?
-    var image_url: String?
-    var is_closed: Bool?
+    var imageUrl: String?
+    var isClosed: Bool?
     var url: String?
-    var review_count: Int?
+    var reviewCount: Int?
     var categories: [Category]
     var rating: Double?
     var coordinates: Coordinate?
@@ -21,7 +21,26 @@ struct Business: Decodable, Identifiable {
     var location: Location
     var distance: Double?
     var phone: String?
-    var display_phone: String?
+    var displayPhone: String?
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case imageUrl = "image_url"
+        case isClosed = "is_closed"
+        case reviewCount = "review_count"
+        case displayPhone = "display_phone"
+        
+        case id
+        case name
+        case url
+        case categories
+        case rating
+        case coordinates
+        case price
+        case location
+        case distance
+        case phone
+    }
 }
 
 struct Category: Decodable {
@@ -34,8 +53,20 @@ struct Location: Decodable {
     var address2: String?
     var address3: String?
     var city: String?
-    var zip_code: String
+    var zipCode: String
     var country: String?
     var state: String?
-    var display_address: [String]?
+    var displayAddress: [String]?
+    
+    enum CodingKeys: String, CodingKey {
+        case zipCode = "zip_code"
+        case displayAddress = "display_address"
+        
+        case address1
+        case address2
+        case address3
+        case city
+        case country
+        case state
+    }
 }
