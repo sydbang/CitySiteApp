@@ -8,7 +8,7 @@
 import Foundation
 
 struct BusinessSearch: Decodable {
-    var businesses: [Business]?
+    var businesses: [Business] = []
     var total: Int?
     var region: Region?
     
