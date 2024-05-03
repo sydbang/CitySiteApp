@@ -21,8 +21,7 @@ struct ContentView: View {
                             Image(systemName: "heart.fill")
                             VStack (alignment: .leading) {
                                 Text(b.name ?? "Restaurant")
-                                    .font(Font.system(size: 15))
-                                    .bold()
+                                    .textStyle(BoldNameFont())
                                 Text(TextHelper.distanceAwayText(meter: b.distance ?? 0))
                                     .font(Font.system(size: 16))
                             }
@@ -31,6 +30,8 @@ struct ContentView: View {
                         }
                         Divider()
                     }
+                    .contentShape(Rectangle())
+                // required for onTapGesture to register spacer()
                     .onTapGesture {
                         selectedBusiness = b
                     }
