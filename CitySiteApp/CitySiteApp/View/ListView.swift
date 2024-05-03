@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ListView.swift
 //  CitySiteApp
 //
 //  Created by Sunghee Bang on 2024-05-02.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ListView: View {
     @Environment(BusinessModel.self) var model
     
     var body: some View {
@@ -40,15 +40,10 @@ struct ContentView: View {
             .listStyle(.plain)
         }
         .padding()
-        .onAppear() {
-            model.getBusiness()
-        }
-        .sheet(item: $model.selectedBusiness) { item in
-            BusinessDetailView()
-        }
     }
 }
 
 #Preview {
-    ContentView()
+    ListView()
+        .environment(BusinessModel())
 }

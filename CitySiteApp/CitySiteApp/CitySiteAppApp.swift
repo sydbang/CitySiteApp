@@ -14,7 +14,7 @@ struct CitySiteAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
                 .environment(businessModel)
         }
     }
