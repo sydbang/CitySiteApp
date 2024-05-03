@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    var service = DataService()
-    @State var businesses = [Business]()
-    @State var selectedBusiness: Business?
+    @Environment(BusinessModel.self) var model
     
     var body: some View {
+        @Bindable var model = model
         VStack {
             List {
-            ForEach(businesses) { b in
+                ForEach(model.businesses) { b in
                     VStack {
                         HStack{
                             Image(systemName: "heart.fill")
@@ -33,7 +32,7 @@ struct ContentView: View {
                     .contentShape(Rectangle())
                 // required for onTapGesture to register spacer()
                     .onTapGesture {
-                        selectedBusiness = b
+                        model.selectedBusiness = b
                     }
                 }
             .listRowSeparator(.hidden)
@@ -41,11 +40,11 @@ struct ContentView: View {
             .listStyle(.plain)
         }
         .padding()
-        .task {
-            businesses = await service.businessSearch()
+        .onAppear() {
+            model.getBusiness()
         }
-        .sheet(item: $selectedBusiness) { item in
-            BusinessDetailView(business: item)
+        .sheet(item: $model.selectedBusiness) { item in
+            BusinessDetailView()
         }
     }
 }

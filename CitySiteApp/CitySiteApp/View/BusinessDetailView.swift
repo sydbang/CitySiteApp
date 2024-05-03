@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct BusinessDetailView: View {
-    var business: Business?
+    @Environment(BusinessModel.self) var model
     var body: some View {
-        if let business = business {
+        if let business = model.selectedBusiness {
             VStack {
                 Text(business.name ?? "not identified")
                 ZStack {
@@ -29,7 +29,7 @@ struct BusinessDetailView: View {
                             .bold()
                             .padding(.bottom, 10)
                         Text("\(business.location.address1 ?? ""), \(business.location.city ?? "")")
-                        Text("\(business.location.state ?? ""), \( business.location.zipCode ?? ""), \(business.location.country ?? "")")
+                        Text("\(business.location.state ?? ""), \( business.location.zipCode), \(business.location.country ?? "")")
                             .padding(.bottom, 10)
                         Divider()
                         HStack {
