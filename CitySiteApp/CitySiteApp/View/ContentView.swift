@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var service = DataService()
     @State var businesses = [Business]()
+    @State var selectedBusiness: Business?
     
     var body: some View {
         VStack {
@@ -30,6 +31,9 @@ struct ContentView: View {
                         }
                         Divider()
                     }
+                    .onTapGesture {
+                        selectedBusiness = b
+                    }
                 }
             .listRowSeparator(.hidden)
             }
@@ -38,6 +42,9 @@ struct ContentView: View {
         .padding()
         .task {
             businesses = await service.businessSearch()
+        }
+        .sheet(item: $selectedBusiness) { item in
+            BusinessDetailView(business: item)
         }
     }
 }
