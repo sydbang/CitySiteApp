@@ -17,19 +17,16 @@ struct DataService {
             return []
         }
         // 1. Create URL
-        if let url = URL(string: "https://api.yelp.com/v3/businesses/search?latitude=37.785834&longitude=-122.406417&categories=restaurants") {
-//            if URLComponents(url: url, resolvingAgainstBaseURL: true) != nil {
-//                var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
-//                let queryItems: [URLQueryItem] = [
-//                    URLQueryItem(name: "latitude", value: "37.785834"),
-//                    URLQueryItem(name: "longitude", value: "-122.406417"),
-//                    URLQueryItem(name: "categories", value: "restaurants"),
-//                    URLQueryItem(name: "sort_by", value: "best_match"),
-//                    URLQueryItem(name: "limit", value: "10"),
-//                ]
-//                components.queryItems = components.queryItems.map { $0 + queryItems } ?? queryItems
-//            }
-            
+        var urlComponents = URLComponents(string: Constants.apiEndpointURL)
+        urlComponents?.queryItems = [
+            URLQueryItem(name: "latitude", value: "37.785834"),
+            URLQueryItem(name: "longitude", value: "-122.406417"),
+            URLQueryItem(name: "categories", value: "restaurants")
+        ]
+        
+        let url = urlComponents?.url
+        
+        if let url = url {
             // 2. Create request
             var request = URLRequest(url: url)
             request.addValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
